@@ -34,4 +34,15 @@ public class HomeController {
 		return "/modal/login-modal";
 	}
 	
+	@RequestMapping(value = "/register")
+	public String register() {
+		
+		return "register";
+	}
+	
+	@RequestMapping(value = "/myPage")
+	public String myPage() {
+		return "mypage";
+	}
+	
 }
