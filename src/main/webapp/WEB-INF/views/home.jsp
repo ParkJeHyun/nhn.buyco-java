@@ -1,25 +1,17 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
-<html>
-<head>
-	<title>Home</title>
-</head>
-<body>
-<h1>
-	Hello world!  
-</h1>
-
-<P>  The time on the server is ${serverTime}. </P>
-</body>
-</html>
-
-<script src="resources/jquery/jquery-3.1.1.min.js"></script>
-<script src="resources/bootstrap/js/bootstrap.min.js"></script>
-<script src="resources/js/script.js"></script>
-<script>
-	ajax_hanlder('/buyco/api/user/list','GET', function (responseData) {
-    	for(idx in responseData) {
-    		document.write(responseData[idx].name);
-    	}
-	});
-</script>
+<%@ page pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="tag" tagdir="/WEB-INF/tags"%>
+<tag:main-header>
+	<body>
+		<div class="container" id="name">
+		</div>
+	</body>
+	<script src="resources/js/script.js"></script>
+	<script>
+		ajax_hanlder('/buyco/api/user/list','GET', function (responseData) {
+    	
+			$("#name").append('<p id="textemail">' + responseData[0].name +'</p>');
+    	
+		});
+	</script>
+</tag:main-header>
